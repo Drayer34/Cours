@@ -1,0 +1,6 @@
+run
+run -deprecation
+run
+compile
+run 
+run
