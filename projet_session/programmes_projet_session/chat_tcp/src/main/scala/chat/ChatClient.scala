@@ -37,7 +37,7 @@ object ChatClient {
     val serveur = system.actorSelection(serverPath)
 
     
-    println("/re pour rejoindre, /exit pour partir")
+    println("/re pour rejoindre, /deco pour se déconnecter et /exit pour partir")
     var client = system.actorOf(Props(new Client(username)), name=username)
     
      Iterator.continually(StdIn.readLine()).takeWhile(_ != "/exit").foreach { msg =>
@@ -47,13 +47,16 @@ object ChatClient {
           serveur.tell(DemandeConnection(username), client)
 
         case "/deco" =>
-          client ! Deconnection 
+          serveur.tell(Deconnection, client)
+
+          //client ! Deconnection 
           
         case _ => 
           serveur.tell(NouveauMessage(msg), client)
       }
     }
 
+    client ! PoisonPill
     system.terminate()
     
   }
@@ -63,7 +66,7 @@ object ChatClient {
 	  def receive={
 			case Recu(msg, emt) => println("["+emt+"]" +" : " + msg)
 
-			case Deconnection => self ! PoisonPill
+			//case Deconnection => self ! PoisonPill
     }
   }
 }

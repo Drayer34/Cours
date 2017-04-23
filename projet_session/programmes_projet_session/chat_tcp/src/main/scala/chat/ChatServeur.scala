@@ -38,6 +38,13 @@ class Server extends Actor {
       println(pseudo+" s'est deconnecte !")
       broadcast(Recu(pseudo+ " s'est déconnecte", "Serveur"), sender)
     }
+
+    case Deconnection => {
+      val pseudo:String = sessions.get(sender).get
+      sessions-=sender
+      println(pseudo+" s'est deconnecte !")
+      broadcast(Recu(pseudo+ " s'est déconnecte", "Serveur"), sender)
+    }
               
     case NouveauMessage(message) => {
       if (sessions.contains(sender)){
