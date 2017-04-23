@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[11pt, a4paper]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
@@ -91,8 +91,8 @@ Aujourd'hui on peut retrouver des bibliothèque qui permettent d'implémenter le
 \par En plus des langages de programmations, le modèle acteur est utilisé dans le web et le cloud \cite{agha2014actors,vecchiola2009high}. Par exemple on peut citer l'application de message de Facebook qui était anciennement écrite en langage acteur, ou Twitter qui est développé en Scala, et dont le modèle de concurrence est un modèle acteur \cite{twitter_concurency}. Pour citer des projets plus récents, le service en ligne du jeu Halo 4 est implémenté en acteur, avec le framework Orleans développé par Microsoft.
 
 \section{Différentes bibliothèques qui implémentent les Acteurs}
-Dans cette partie on va regarder les trois bibliothèque suivante : Akka pour la JVM , Celluloid pour le langage Ruby et la bibliothèque Acteur de Nit. On va regarder comment utilisé les acteurs dans ces bibliothèques et comment elles implémentent le modèle Acteur. Plus tard dans le document on parlera des avantages et des faiblesses de chacune d'elles, mais cette partie est consacré à l'expérimentation des bibliothèques. 
-\par Pour cela on va commencer par regarder la bibliothèque Akka, qui est la plus grosse des trois et permet de ce rapprocher le plus du modèle Acteur, ensuite on regardera Celluloid, qui permet d'apporter au Ruby l'aspect concurrence par Acteur. Et enfin on regardera la bibliothèque de Nit, qui est basée sur celle de Celluloid.
+Dans cette partie on va regarder les deux bibliothèque suivantes : Akka pour la JVM et la bibliothèque Acteur de Nit. On va regarder comment utilisé les acteurs dans ces bibliothèques et comment elles implémentent le modèle Acteur. Plus tard dans le document on parlera des avantages et des faiblesses de chacune d'elles, mais cette partie est consacré à l'expérimentation des bibliothèques. 
+\par Pour cela on va commencer par regarder la bibliothèque Akka, qui est la plus grosse des deux et permet de ce rapprocher le plus du modèle Acteur. Et enfin on regardera la bibliothèque de Nit, qui est basée sur celle de Celluloid.
 
 \subsection{Les acteurs en Scala avec Akka}
 Akka est une bibliothèque qui apporte le modèle Acteur à la JVM. Dans le cadre de ce projet de session on va regarder seulement Akka pour le langage de programmation Scala, car il parait plus simple à première vue de programmer en acteur avec Scala qu'avec le langage Java. C'est une bibliothèque écrite en Scala et elle a pour but, en plus d'implémenter le modèle Acteur, de permettre au développeur de fournir un code plus simple, performant et fiable par rapport a la bibliothèque concurrente de base de Scala, ou de Java.
@@ -110,7 +110,7 @@ Les acteurs dans Akka peuvent être désigner de deux manière différentes : pa
 Pour créer les premiers acteurs dans Akka il faut avoir un système d'acteur, c'est lui qui va superviser les acteurs qui seront créer par lui. Pour créer un système d'acteur il suffit d'utiliser la fonction \texttt{ActorSystem("NomSystème")}. Ensuite chaque acteur que vous créer aura son propre contexte, et pourras créer des acteurs a partir de celui-ci. Il représente l'interface que l'on à avec l'acteur. 
 \par Une fois que l'on a le système d'acteur, on peut créer et obtenir la référence sur l'acteur grâce à la méthode \texttt{actorOf()}. On peut alors commencer à envoyer des messages à cet acteur.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{lstlisting}[language=Scala]
 __________________________________________________________________________
@@ -200,7 +200,7 @@ Lorsque l'on démarre une application Akka, on démarre au moins trois acteur, q
 \par Les acteurs qui supervisent ont une stratégie pour connaître  quelle action prendre quand une exception ce produit. Par défaut un superviseur va vouloir redémarrer l'acteur en question pour tous type d'exception qui a produit le crash de l'acteur. Les seuls cas ou il ne va pas essayer de redémarrer son fils et si l'erreur survient lors de l'initialisation de l'acteur ou lorsque celui-ci à été tué.
 \par Cette stratégie peut être changé si on veut en redéfinissant la méthode \texttt{supervisorStrategy}. On peut voir un exemple de redéfinition figure \ref{fig3}.
 
-\begin{figure}[h!]
+\begin{figure}[ht]
   \begin{lstlisting}[language=scala]
   __________________________________________________________________________
   import akka.actor.OneForOneStrategy
@@ -233,7 +233,7 @@ Akka nous donnes des références sur des acteurs, et on peut envoyer des messag
 \par Akka, comme dans le modèle théorique n'assure pas la réception du message. En effet il sera reçut au plus une fois par le destinataire. Par contre Akka assure que si plusieurs messages sont envoyé a un acteurs par l'envoyeur successivement, alors les messages seront reçus dans le même ordre que celui de l'envoie. Par exemple si A envoi à B m1, m2 et m3, alors si B reçoit m1, ce sera forcément avant m2 et m3.
 \newline
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{lstlisting}[language=scala]
 __________________________________________________________________________
@@ -260,7 +260,7 @@ __________________________________________________________________________
 \par En plus de pouvoir envoyer un message de manière asynchrone avec la méthode \texttt{tell(...)}, Akka permet d'enregistrer ce messages dans un Future avec la méthode \texttt{ask(mesg, Actorref)} ou encore \texttt{?}. Cela permet d'envoyer un message et d'attendre pour une réponse sans bloquer le le thread principal. On peut ensuite récupérer ce résultat de manière bloquante, i.e en attendant que le future ai fini son exécution ou alors avec la commande \texttt{onComplete()}. On peut voir un exemple d'utilisation des futurs dans  la figure \ref{futur}
 \newline 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{lstlisting}[language=scala]
 __________________________________________________________________________
@@ -299,9 +299,116 @@ Akka est une très grande bibliothèque dans laquelle il existe beaucoup d'autre
 %\subsubsection{Cycle de vie}
 
 \subsection{Les acteurs en Nit avec la bibliothèque d'acteur}
+On va regarder dans cette partie comment est implémenté le modèle acteur dans le langage de programmation Nit et en quoi cela diffère d'Akka. Pour cela on regardera comment sont créer les acteurs, leurs caractéristiques et l'envoi de messages. On regardera aussi un exemple pour comprendre l’instanciation d'un acteur.
 
 \subsubsection{Implémentations des acteurs}
+L'implémentation diffère de celle d'Akka ici. En effet dans Akka un acteur était désigner par sa référence et avait une addresse. On pouvait alors manipuler <<directement>> cet acteur par le biais de la référence. Ici on distingue trois entité différentes :
+\newline
+\begin{itemize}
+\item la classe qu'on veut faire devenir acteur
+\item le proxy de cette classe. C'est lui qui va faire passer les messages à l'acteur.
+\item l'acteur de la classe. C'est lui qui va recevoir les messages et les traiter.\\
+\end{itemize}
+\par 
+Les messages correspondent aux différentes méthodes qui se trouvent dans la classe de base. Ces méthodes sont ensuite invoquées par l'acteur lorsqu'il à reçut et traite le message. Les messages suivent la propriétés des messages dans le modèle acteurs, c'est à dire qu'ils sont envoyés de manière asynchrone à l'acteur, les Acteurs étant des threads. Pour illustrer le modèle d'acteur de Nit, on peut regarder la figure \ref{acteur_nit}.
+\par 
+Pour ce qui est des caractéristiques des Acteurs dans Nit, on retrouve :
 
+\begin{itemize}
+\item Une boite aux lettres : elle est implémenté avec une collection concurrente. Elle permet d'ajouter des messages en fin ou au début de la collection avec les commandes \texttt{push, unshift} respectivement. Mais aussi de lire le premier message avec \texttt{shift}. On utilise une collection concurrente pour permettre de bloquer lors de toute opération de lecture ou d'écriture.
+\item l'instance de l'objet qu'il représente : cet attribut est utilisé lorsque l'acteur reçoit un message, il appelle alors la méthode qui correspond au message sur l'instance qu'il représente.
+\end{itemize}
+On peut voir que contrairement au propriétés du modèle acteur théorique, un acteur ici n'a pas d'adresse. C'est toujours son proxy qui va lui transmettre les messages. Un acteur ne peux pas non plus répondre a un message reçut de son proxy, car il ne peut pas envoyer de message. C'est l'instance qui demande l'envoie de message asynchrone. Un acteur sert dans Nit un rôle purement concurrent.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{acteur_nit}
+\caption{\label{acteur_nit}Structure du modèle Acteur dans Nit }
+\end{figure}
+
+\subsubsection{Création d'un acteur dans Nit}
+\par Un acteur est créé lors du premier appel une méthode avec le mot clé \texttt{async} devant la méthode. Par exemple \texttt{async.foo}, va d'abord créer le Proxy de cette classe, il créer à son tour l'acteur de la classe et lui envoie le message. L'acteur va alors exister jusqu'à l'arrêt du programme et des taches en cours par les acteurs ou jusqu'à ce qu'on le termine. On verra ce procéder dans la supervision des acteurs.
+\par Pour spécifier qu'une classe sera acteur on l'annote en utilisant le mot clé \texttt{acteur} après ça déclaration. On peut voir un exemple dans la figure \ref{nit_prog}
+
+\subsubsection{Messages dans ce modèle d'acteur}
+
+\par Dans la bibliothèque la classe peut être utilisé aussi bien en temps qu'acteur qu'en classe normale. En effet les appels des méthodes qui détermine si ça va être une exécution normale ou asynchrone par le biais d'un acteur. On distingue alors l'envoie de messages asynchrones aux acteurs par l'utilisation du mot clé \texttt{async} devant l'appel de la méthode.
+\par Lors de l’exécution, chaque méthodes qui se trouve dans l'objet instancier et annoté par le mot clé acteur est traduit en une classe Message, \texttt{MessageFoo} par exemple. Chaque message de méthode hérite lui de la classe des messages de la classe annoté <<acteur>>.
+\par Donc lors de la première exécution asynchrone d'une méthode, on créer le proxy de cette classe, qui lui va associer chaque méthode à son message, créer l'acteur et lui envoyer le message dans sa boite aux lettres. L'acteur regarde en permanence pour des nouveaux messages dans sa boite aux lettres.
+\par Les messages on une méthode unique qui est \texttt{invoke(instance)}. Elle permet a l'acteur d'invoquer la méthode qui correspond au message sur l'instance qui l'a appelé, cela par l'acteur. Qui pour chaque messages $m$ appelle \texttt{m.invoke(instance)}.
+\par Ainsi par la propriété des objets et a condition que la variable ne soit pas accessible publiquement, on garde la propriété d'un état protégé et on évite les verrous mortel car les messages sont traités les uns a la suite des autres.
+
+\subsubsection{Supervision et cycle de vie des acteurs}
+Dans le modèle de Nit il n'y a pas vraiment de superviseur. On retrouve néanmoins le système qui connais tous les acteurs, et qui va attendre que la liste d'acteur soit vide, qu'ils aient tous finis de traiter leur messages pour que le programme puisse quitter. Sinon l'appel à la méthode \texttt{active\_actors.is\_empty} est bloquant.
+\par 
+Il est possible de terminer la vie d'un acteur en lui envoyant les messages \texttt{terminate} qui va attendre que l'acteur aie fini de traiter ces messages, ou \texttt{terminate\_now} qui passe le message en premier et arrête l'acteur.
+
+\subsubsection{Exemple simple}
+
+Dans les figures \ref{nit_prog} et \ref{nit_prog_gen} on peut voir un programme simple qui a pour but de montrer comment fonctionne le modèle acteur dans Nit. On peut voir qu'on annote la classe A avec le mot clé acteur. Dans figure \ref{nit_prog_gen} on voit que Nit a créé deux messages un messages qui représente tous les messages possible de la classe A et un autre spécifique à la méthode \texttt{foo}. De plus on créer le proxy et l'acteur spécifique à la classe (l'acteur spécifique à A n'est pas présent sur cet exemple) et on associe l'acteur au proxy et l'envoi du message \texttt{AMessageFoo} à la méthode \texttt{foo}.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \begin{lstlisting}[language=ruby]
+__________________________________________________________________________
+class A 
+        actor
+
+        fun foo do print "foo"
+end
+
+var a = new A
+a.foo
+a.async.foo
+__________________________________________________________________________
+\end{lstlisting}
+  \caption{Un exemple de programme utilisant les acteurs dans Nit}
+  \label{nit_prog}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+\begin{lstlisting}[language=ruby]
+__________________________________________________________________________
+####### Redef classes #######
+redef class A
+	redef var async is lazy do return new ProxyA.proxy(self)
+end
+####### Messages classes #######
+class MessageA
+	super Message
+	redef type E: A
+end
+
+class AMessagefoo
+	super MessageA
+	redef fun invoke(instance) do instance.foo
+end
+
+####### Proxy classes #######
+redef class ProxyA
+
+	redef type E: ActorA
+	#var actor: ActorA is noinit
+
+	init proxy(base_class: A) do
+		actor = new ActorA(base_class)
+		actor.start
+	end
+
+	redef fun foo do
+		var msg = new AMessagefoo
+		actor.mailbox.push(msg)
+	end
+end
+__________________________________________________________________________
+\end{lstlisting} 
+\caption{Le fichier générer par nit lors de l'exécution du programme Figure \ref{nit_prog}}
+  \label{nit_prog_gen}
+\end{minipage}
+\end{figure}
+%minipage test.nit
 
 \section{Les avantages et faiblesses de ces bibliothèques}
 
