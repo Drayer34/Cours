@@ -127,7 +127,7 @@ object Mandelbrot extends App {
   }
   
   val system = ActorSystem("mandelbrot")
-  val master = system.actorOf(Props(new Master(1,1)), name="master")
+  val master = system.actorOf(Props(new Master(128,128)), name="master")
   
   implicit val timeout = Timeout(FiniteDuration(1, TimeUnit.SECONDS))
   val future:Future[Int] = ask(master, Start).mapTo[Int]
