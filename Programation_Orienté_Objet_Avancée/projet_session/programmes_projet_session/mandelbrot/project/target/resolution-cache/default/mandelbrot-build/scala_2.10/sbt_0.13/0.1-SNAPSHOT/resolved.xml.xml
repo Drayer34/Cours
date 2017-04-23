@@ -4,7 +4,7 @@
 		module="mandelbrot-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20170422044624"
+		publication="20170422170601"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

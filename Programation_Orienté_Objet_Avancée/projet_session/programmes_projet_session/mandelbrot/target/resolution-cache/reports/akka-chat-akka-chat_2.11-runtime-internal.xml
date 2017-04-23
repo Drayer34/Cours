@@ -7,15 +7,15 @@
 		revision="1.0"
 		conf="runtime-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170422045651"/>
+		date="20170422170829"/>
 	<dependencies>
 		<module organisation="org.scala-lang" name="scala-swing">
-			<revision name="2.11.0-M7" status="release" pubdate="20131118150333" resolver="public" artresolver="public" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.11.0-M7/" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="16">
+			<revision name="2.11.0-M7" status="release" pubdate="20131118150333" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.11.0-M7/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="16">
 				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
-				<metadata-artifact status="successful" details="" size="1949" time="204" location="C:\Users\Antoine\.ivy2\cache\org.scala-lang\scala-swing\ivy-2.11.0-M7.xml" searched="true" original-local-location="C:\Users\Antoine\.ivy2\cache\org.scala-lang\scala-swing\ivy-2.11.0-M7.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-swing/2.11.0-M7/scala-swing-2.11.0-M7.pom"/>
+				<metadata-artifact status="no" details="" size="2840" time="0" location="C:\Users\Antoine\.ivy2\cache\org.scala-lang\scala-swing\ivy-2.11.0-M7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-swing/2.11.0-M7/scala-swing-2.11.0-M7.pom"/>
 				<caller organisation="akka-chat" name="akka-chat_2.11" conf="compile, runtime-internal, runtime, optional" rev="2.11.0-M7" rev-constraint-default="2.11.0-M7" rev-constraint-dynamic="2.11.0-M7" callerrev="1.0"/>
 				<artifacts>
-					<artifact name="scala-swing" type="jar" ext="jar" status="successful" details="" size="710281" time="322" location="C:\Users\Antoine\.ivy2\cache\org.scala-lang\scala-swing\jars\scala-swing-2.11.0-M7.jar">
+					<artifact name="scala-swing" type="jar" ext="jar" status="no" details="" size="710281" time="0" location="C:\Users\Antoine\.ivy2\cache\org.scala-lang\scala-swing\jars\scala-swing-2.11.0-M7.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-swing/2.11.0-M7/scala-swing-2.11.0-M7.jar"/>
 					</artifact>
 				</artifacts>
