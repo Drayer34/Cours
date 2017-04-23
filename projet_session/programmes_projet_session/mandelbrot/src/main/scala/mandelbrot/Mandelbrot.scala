@@ -32,16 +32,19 @@ object Mandelbrot extends App {
 	val x_max =  1.0
 	val y_min = -1.0
 	val y_max =  1.0
-  val iter_max = 1000
+  	val iter_max = 1000
   
-  val width= 1080
-  val height = 880
+  val width= 1024
+  val height = 768
   
   class Master(nbActeurs:Int, nbThreads:Int) extends Actor{
     
     var mandelbrot_map: mutable.Map[(Int, Int), Int] = mutable.Map()
     var completude = 0
-    
+    val start: Long = System.currentTimeMillis()
+
+
+
     val workerPool = context.actorOf(
         Props[Worker].withRouter(RoundRobinPool(nbActeurs)), name = "workerPool")
         
@@ -68,6 +71,8 @@ object Mandelbrot extends App {
 	      mandelbrot_map ++= map
 	      completude +=1
 	      if (completude == nbThreads){
+	      	val temps = (System.currentTimeMillis()-start)
+	      	println("Calculer en "+temps)
 	        self ! Fini(mandelbrot_map)
 	      }
 	    }
@@ -122,7 +127,7 @@ object Mandelbrot extends App {
   }
   
   val system = ActorSystem("mandelbrot")
-  val master = system.actorOf(Props(new Master(8,8)), name="master")
+  val master = system.actorOf(Props(new Master(1,1)), name="master")
   
   implicit val timeout = Timeout(FiniteDuration(1, TimeUnit.SECONDS))
   val future:Future[Int] = ask(master, Start).mapTo[Int]
