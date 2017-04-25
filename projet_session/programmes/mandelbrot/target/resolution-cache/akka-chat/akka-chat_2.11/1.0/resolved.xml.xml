@@ -4,7 +4,7 @@
 		module="akka-chat_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20170423165218"
+		publication="20170424002149"
 	>
 		<description>
 		A simple chat server/client app demonstrating the Akka actors model

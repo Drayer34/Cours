@@ -1,10 +1,6 @@
-name := "akka-chat"
+name := "chat-concept"
 
 version := "1.0"
-
-description := "A simple chat server/client app demonstrating the Akka actors model"
-
-resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
  
 scalaVersion := "2.11.8"
 
