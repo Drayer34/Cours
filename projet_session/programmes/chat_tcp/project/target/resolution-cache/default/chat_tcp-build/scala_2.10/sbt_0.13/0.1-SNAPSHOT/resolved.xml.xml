@@ -4,7 +4,7 @@
 		module="chat_tcp-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20170423172418"
+		publication="20170425195523"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

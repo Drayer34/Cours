@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/Antoine/Documents/POO/projet_session/programmes_projet_session/chat_tcp/project/}chat_tcp-build...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/Antoine/Documents/POO/projet_session/programmes/chat_tcp/project/}chat_tcp-build...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: default#chat_tcp-build;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -6009,19 +6009,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1443ms :: artifacts dl 26ms[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT compile produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT runtime produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT test produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT provided produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT optional produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT compile-internal produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT runtime-internal produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT test-internal produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT plugin produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT sources produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT docs produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT pom produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT scala-tool produced in C:\Users\Antoine\Documents\POO\projet_session\programmes_projet_session\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1443ms resolve - 26ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 871ms :: artifacts dl 27ms[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT compile produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT runtime produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT test produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT provided produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT optional produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT compile-internal produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT runtime-internal produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT test-internal produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT plugin produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT sources produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT docs produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT pom produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#chat_tcp-build;0.1-SNAPSHOT scala-tool produced in C:\Users\Antoine\Documents\POO\projet_session\programmes\chat_tcp\project\target\resolution-cache\reports\default-chat_tcp-build-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (871ms resolve - 27ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
